@@ -1,0 +1,77 @@
+{
+  "name": "winston-utils",
+  "version": "0.0.1",
+  "description": "Utilites for the Winston logger",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhatshell/winston-utils.git"
+  },
+  "scripts": {
+    "clean": "rimraf dist coverage junit.xml",
+    "build": "webpack --mode=production",
+    "prepublishOnly": "npm run clean && webpack --mode=production",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "start:prod": "node dist/index.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit --coverageReporters=html --coverageReporters=cobertura",
+    "test:cov": "jest --coverage --reporters=default --reporters=jest-junit --coverageReporters=cobertura",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/jest/bin/jest.js --runInBand"
+  },
+  "author": "Robert Hamilton",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "4.17.15",
+    "typescript": "3.6.4",
+    "winston": "3.2.1"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/lodash": "4.14.144",
+    "@types/webpack": "4.39.2",
+    "jest": "24.9.0",
+    "jest-junit": "8.0.0",
+    "nodemon": "1.19.3",
+    "prettier": "1.18.2",
+    "rimraf": "3.0.0",
+    "ts-jest": "24.1.0",
+    "ts-loader": "6.2.0",
+    "ts-node": "8.4.1",
+    "tsconfig-paths": "3.9.0",
+    "tsconfig-paths-jest": "0.0.1",
+    "tsconfig-paths-webpack-plugin": "3.2.0",
+    "tslint": "5.20.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "webpack": "4.41.0",
+    "webpack-cli": "3.3.9",
+    "webpack-node-externals": "1.7.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "moduleNameMapper": {
+      "amazon-cognito-auth-js": "<rootDir>/__mocks__/amazon-cognito-auth-js/index.ts",
+      "amazon-cognito-identity-js": "<rootDir>/__mocks__/amazon-cognito-identity-js/index.ts"
+    },
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "baseUrl": ".",
+    "outDir": "dist",
+    "paths": {
+      "@interfaces/*": ["src/interfaces/*"]
+    }
+  },
+  "exclude": [
+    "coverage",
+    "dist",
+    "node_modules",
+    "test"
+  ]
+}
