@@ -18,8 +18,8 @@
     "start:prod": "node dist/index.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
-    "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit --coverageReporters=html --coverageReporters=cobertura",
-    "test:cov": "jest --coverage --reporters=default --reporters=jest-junit --coverageReporters=cobertura",
+    "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit --coverageReporters=cobertura",
+    "test:cov": "jest --coverage --reporters=default --reporters=jest-junit --coverageReporters=html --coverageReporters=cobertura",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/jest/bin/jest.js --runInBand"
   },
   "author": "Robert Hamilton",

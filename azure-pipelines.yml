@@ -16,10 +16,11 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run test:ci
-    npm run build
-  displayName: 'npm install, test and build'
+    yarn install
+    yarn lint
+    yarn test:ci
+    yarn build
+  displayName: 'NPM Install, Lint, Test and Build'
 
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
