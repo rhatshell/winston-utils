@@ -17,5 +17,20 @@ steps:
 
 - script: |
     npm install
+    npm run test:ci
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm install, test and build'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/junit.xml'
+        failTaskOnFailedTests: true
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage'
+  inputs:
+      codeCoverageTool: 'Cobertura'
+      summaryFileLocation: '**/coverage/cobertura-coverage.xml'
+      failIfCoverageEmpty: true
