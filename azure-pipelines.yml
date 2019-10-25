@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    yarn install
+    yarn --strict-ssl=false --registry $(registry) install
     yarn lint
     yarn test:ci
     yarn build
