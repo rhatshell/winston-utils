@@ -6,8 +6,7 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: 'Connected DTL Common'
 
 steps:
 - task: NodeTool@0
@@ -17,8 +16,6 @@ steps:
 
 - script: |
     yarn config set registry $(registry)
-    yarn config set proxy $(proxy)
-    yarn config set https-proxy $(proxy)
     yarn config set strict-ssl false
     yarn install
     yarn lint
