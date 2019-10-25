@@ -16,7 +16,11 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    yarn --strict-ssl=false --registry $(registry) install
+    yarn config set registry $(registry)
+    yarn config set proxy $(proxy)
+    yarn config set https-proxy $(proxy)
+    yarn config set strict-ssl false
+    yarn install
     yarn lint
     yarn test:ci
     yarn build
