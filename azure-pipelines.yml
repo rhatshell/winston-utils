@@ -15,8 +15,6 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    yarn config set proxy $(HTTP_PROXY)
-    yarn config set https-proxy $(HTTPS_PROXY)
     yarn config set registry $(registry)
     yarn config set strict-ssl false
     yarn install
