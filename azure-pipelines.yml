@@ -26,13 +26,16 @@ steps:
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
-        testResultsFormat: 'JUnit'
-        testResultsFiles: '**/junit.xml'
-        failTaskOnFailedTests: true
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/junit.xml'
+    failTaskOnFailedTests: true
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage'
   inputs:
-      codeCoverageTool: 'Cobertura'
-      summaryFileLocation: '**/coverage/cobertura-coverage.xml'
-      failIfCoverageEmpty: true
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coverage/cobertura-coverage.xml'
+    failIfCoverageEmpty: true
+
+- script: |
+    yarn publish --registry $(publish_registry)
