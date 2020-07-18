@@ -25,7 +25,7 @@
   "author": "Robert Hamilton",
   "license": "ISC",
   "dependencies": {
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "typescript": "3.6.4",
     "winston": "3.2.1"
   },
